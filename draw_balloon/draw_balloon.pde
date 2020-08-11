@@ -2,7 +2,7 @@
 //9/8/2020
 /*********************************/
 /* 
-defind controling balloon function   
+ can control speed of balloon
  */
 int y_position;
 void setup() {
@@ -12,16 +12,16 @@ void setup() {
   y_position = height;
 }
 void draw() {
-  moveable();
+  moveable(2);
 }
 
-void moveable() { // definded new function for control balloon
+void moveable(float spd_point) { // create parameter for control speed 
   if (mousePressed) {  
     y_position = y_position;  
   } else if (y_position == 0) {  
     y_position = height;
   } else {  // 
-    y_position -=1;
+    y_position -=spd_point;
   }  
   background(230); 
   balloon(150, y_position, 150);
