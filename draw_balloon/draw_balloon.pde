@@ -2,14 +2,13 @@
 //9/8/2020
 /*********************************/
 /* 
- using class for more than one balloon and balloon random color .
+ use array for balloons .
  */
 
 class Balloon {  
-  int x_pos, y_pos, ext_point;   
-  float spd_point;
+  float x_pos, y_pos, ext_point,spd_point;   // for random location need float 
   color fill_color;
-  Balloon(int x, int extent, float spd, color colr) { // add new parameter is random color
+  Balloon(float x, float extent, float spd, color colr) { // add new parameter is random color
     x_pos = x;
     y_pos = height;
     ext_point = extent;
@@ -26,30 +25,29 @@ class Balloon {
     }
     balloon(x_pos, y_pos, ext_point);
   }
-  void balloon(int x, int y, int extent) {
+  void balloon(float x, float y, float extent) {
     fill(fill_color);
     circle(x, y, extent);
     rect(x, y+extent/2, 5, extent);
   }
 }
 
-Balloon ball1;  
-Balloon ball2;
-Balloon ball3;
-void setup() {
+Balloon[] balls; // defind object balls is array .
+int number = 5; // defind number of balloons  
+void setup() {  // for loop for call objects more than one . and random value
   noStroke();
-  size(500, 500);  
-  ball1 = new Balloon(250, 200, 2, color(random(0, 255), random(0, 255), random(0, 255))  );
-  ball2= new Balloon(100, 150, 3, color(random(0, 255), random(0, 255), random(0, 255))  );
-  ball3= new Balloon(400, 170, 1, color(random(0, 255), random(0, 255), random(0, 255))  );
+  size(500, 500);
+  balls = new Balloon[number];
+  for (int i =0; i<number; i ++) {
+    balls[i] = new Balloon(random(10,400), random(50,200), random(1,3), color(random(0, 255), random(0, 255), random(0, 255))  );
+  }
 }
-void draw() {
-  background(230); 
-  ball1.moveable();
-  ball2.moveable();
-  ball3.moveable();
+void draw() {  // for loop for using n time
+  background(230);
+  for (int i =0; i<number; i ++) {
+    balls[i].moveable();
+  }
 }
-
 
 
 void ellip (int x, int  y, int widt, int hei) {
