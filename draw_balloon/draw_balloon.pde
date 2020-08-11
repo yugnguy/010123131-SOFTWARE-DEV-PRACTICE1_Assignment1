@@ -2,7 +2,7 @@
 //9/8/2020
 /*********************************/
 /* 
- moving balloon
+balloon can clicked for stop 
  */
 int y_position;
 void setup() {
@@ -12,12 +12,14 @@ void setup() {
   y_position = height;
 }
 void draw() {  
-  if (y_position == 0) {  // codition main idea is check y value only not do another thing like draw or fill
+  if (mousePressed) {  // this codiotion mean if we clicked mouse
+    y_position = y_position;  // let y_positon value don't change
+  } else if (y_position == 0) {  
     y_position = height;
   } else {  // 
-    y_position -=1;  // going up with 1 pixel per round
+    y_position -=1;  
   }  
-  background(230); //move background to draw for fill everytime to before balloon
+  background(230); 
   balloon(150, y_position, 150);
 }
 
