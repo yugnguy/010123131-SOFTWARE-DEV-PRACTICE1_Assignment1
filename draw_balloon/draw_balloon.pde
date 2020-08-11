@@ -2,19 +2,25 @@
 //9/8/2020
 /*********************************/
 /* 
- drawing single ballon as function with random color 
+ moving balloon
  */
+int y_position;
 void setup() {
   noStroke();
-  size(500, 500); //defind size of program is 500 x 500 pixel 
-  background(230); // background color 
-  fill(random(0, 255), random(0, 255), random(0, 255)); // fill color with random color 
+  size(500, 500);  
+  fill(random(0, 255), random(0, 255), random(0, 255)); 
+  y_position = height;
 }
-void draw() {  // progressing of draw function is do infinite round 
-  balloon(150, 200, 150); //call function that progressing is draw balloon
-} 
+void draw() {  
+  if (y_position == 0) {  // codition main idea is check y value only not do another thing like draw or fill
+    y_position = height;
+  } else {  // 
+    y_position -=1;  // going up with 1 pixel per round
+  }  
+  background(230); //move background to draw for fill everytime to before balloon
+  balloon(150, y_position, 150);
+}
 
-//make ballon and ellipse  by using function
 void balloon(int x, int y, int extent) {
   circle(x, y, extent);
   rect(x, y+extent/2, 5, extent);
