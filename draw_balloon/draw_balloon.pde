@@ -2,7 +2,7 @@
 //9/8/2020
 /*********************************/
 /* 
-balloon can clicked for stop 
+defind controling balloon function   
  */
 int y_position;
 void setup() {
@@ -11,13 +11,17 @@ void setup() {
   fill(random(0, 255), random(0, 255), random(0, 255)); 
   y_position = height;
 }
-void draw() {  
-  if (mousePressed) {  // this codiotion mean if we clicked mouse
-    y_position = y_position;  // let y_positon value don't change
+void draw() {
+  moveable();
+}
+
+void moveable() { // definded new function for control balloon
+  if (mousePressed) {  
+    y_position = y_position;  
   } else if (y_position == 0) {  
     y_position = height;
   } else {  // 
-    y_position -=1;  
+    y_position -=1;
   }  
   background(230); 
   balloon(150, y_position, 150);
