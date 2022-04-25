@@ -1,3 +1,2 @@
-# Assignment1
-
-it's material to teaching Middle school and HighSchool Student 
+# Description
+Using Processing Languare based from Java which Implement and focus about drawing on the screen and make animation in Class
